@@ -1,0 +1,254 @@
+﻿<Window
+    x:Class="ATM.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ATM"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ATM"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Maximized"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <Window.Resources>
+
+        <Style x:Key="ExitBtnStyle" TargetType="Button">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="White" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border
+            Grid.RowSpan="4"
+            Grid.ColumnSpan="2"
+            CornerRadius="0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Offset="0.0" Color="#248F8B" />
+                    <GradientStop Offset="0.50" Color="#4DDBD7" />
+                    <GradientStop Offset="1.0" Color="#73FFFA" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <StackPanel
+            Grid.Row="0"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Left"
+            Orientation="Horizontal">
+            <TextBlock
+                MaxWidth="300"
+                Margin="15,0"
+                VerticalAlignment="Center"
+                FontFamily="Verdana"
+                FontSize="38"
+                FontWeight="Bold"
+                Foreground="White">
+                Номер карти:
+            </TextBlock>
+            <TextBlock
+                x:Name="numTxt"
+                Margin="0,10"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontFamily="Verdana"
+                FontSize="38"
+                FontWeight="Bold"
+                Foreground="White">
+                sss
+            </TextBlock>
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <TextBlock
+                MaxWidth="300"
+                Margin="15,0"
+                FontFamily="Verdana"
+                FontSize="38"
+                FontWeight="Bold"
+                Foreground="White">
+                Баланс:
+            </TextBlock>
+            <TextBlock
+                x:Name="balanceTxt"
+                MaxWidth="300"
+                FontFamily="Verdana"
+                FontSize="38"
+                FontWeight="Bold"
+                Foreground="White" />
+            <TextBlock
+                MaxWidth="300"
+                Margin="5,0"
+                FontFamily="Verdana"
+                FontSize="38"
+                FontWeight="Bold"
+                Foreground="White">
+                грн
+            </TextBlock>
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="2"
+            Grid.Column="0"
+            VerticalAlignment="Center"
+            Orientation="Vertical">
+            <Button
+                x:Name="WithdrawalBtn"
+                Click="WithdrawalBtn_Click_1"
+                Style="{DynamicResource RoundedButtonStyle}">
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Width="130"
+                        Height="130"
+                        HorizontalAlignment="Left"
+                        Source="/icons/withdraw.png"
+                        Stretch="Fill" />
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontFamily="Verdana"
+                        FontSize="38"
+                        FontWeight="Bold">
+                        Зняття готівки
+                    </TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="2"
+            Grid.Column="1"
+            VerticalAlignment="Center"
+            Orientation="Vertical">
+            <Button
+                x:Name="TopupBtn"
+                Click="TopupBtn_Click"
+                Style="{DynamicResource RoundedButtonStyle}">
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Width="130"
+                        Height="130"
+                        HorizontalAlignment="Left"
+                        Source="/icons/wallet.png"
+                        Stretch="Fill" />
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontFamily="Verdana"
+                        FontSize="38"
+                        FontWeight="Bold">
+                        Поповнення карти
+                    </TextBlock>
+                </StackPanel>
+
+            </Button>
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="3"
+            Grid.Column="0"
+            VerticalAlignment="Center"
+            Orientation="Vertical">
+            <Button
+                x:Name="TransferCardBtn"
+                Click="TransferCardBtn_Click"
+                Style="{DynamicResource RoundedButtonStyle}">
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Width="130"
+                        Height="130"
+                        HorizontalAlignment="Left"
+                        Source="/icons/credit-card.png"
+                        Stretch="Fill" />
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontFamily="Verdana"
+                        FontSize="38"
+                        FontWeight="Bold">
+                        Переказ на карту
+                    </TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="3"
+            Grid.Column="1"
+            VerticalAlignment="Center"
+            Orientation="Vertical">
+            <Button
+                x:Name="HistoryBtn"
+                Click="HistoryBtn_Click"
+                Style="{DynamicResource RoundedButtonStyle}">
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Width="130"
+                        Height="130"
+                        HorizontalAlignment="Left"
+                        Source="/icons/history.png"
+                        Stretch="Fill" />
+                    <TextBlock
+                        Padding="10,0"
+                        VerticalAlignment="Center"
+                        FontFamily="Verdana"
+                        FontSize="38"
+                        FontWeight="Bold">
+                        Історія операцій
+                    </TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <StackPanel
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2"
+            Orientation="Vertical">
+            <Button
+                x:Name="ExitBtn"
+                Width="200"
+                Height="60"
+                Margin="10"
+                Padding="10"
+                HorizontalAlignment="Right"
+                Click="ExitBtn_Click"
+                Content="Вийти"
+                FontFamily="Verdana"
+                FontSize="24"
+                FontWeight="Bold">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20" />
+                    </Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="White" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <SolidColorBrush Opacity="0.5" Color="White" />
+                </Button.Background>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
